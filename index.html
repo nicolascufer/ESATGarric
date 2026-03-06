@@ -11,39 +11,30 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #e3004f;
-            --secondary-color: #2c5f2d;
-            --accent-color: #f9b233;
-            --text-dark: #333;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
+            color: #333;
         }
 
         /* Header */
         header {
-            background: var(--white);
+            background: linear-gradient(135deg, #2c5f2d 0%, #97c05c 100%);
+            padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        nav {
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
+            flex-wrap: wrap;
         }
 
         .logo-container {
@@ -54,186 +45,294 @@
 
         .logo-container img {
             height: 60px;
-            width: auto;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
         }
 
-        .site-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-dark);
+        .logo-text {
+            color: white;
         }
 
-        .site-title span {
-            color: var(--primary-color);
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            font-style: italic;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
             gap: 2rem;
-            align-items: center;
         }
 
         nav a {
-            color: var(--text-dark);
+            color: white;
             text-decoration: none;
-            transition: color 0.3s;
             font-weight: 500;
+            transition: opacity 0.3s;
         }
 
         nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.5rem;
-            cursor: pointer;
+            opacity: 0.8;
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 95, 45, 0.7), rgba(44, 95, 45, 0.7)), 
-                        url('paysage_lac.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--white);
-            padding: 180px 2rem 120px;
+                        url('paysage_lac.jpg') center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-top: 90px;
+            color: white;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
+        .hero-content h2 {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            animation: fadeInDown 1s;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .hero .subtitle {
+        .hero-content p {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .btn {
+        .cta-button {
             display: inline-block;
+            background: #e3004f;
+            color: white;
             padding: 1rem 2.5rem;
-            background: var(--primary-color);
-            color: var(--white);
             text-decoration: none;
             border-radius: 50px;
-            transition: all 0.3s;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin: 0.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .btn:hover {
+        .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            background: #c20043;
+            box-shadow: 0 5px 15px rgba(227, 0, 79, 0.4);
         }
 
-        .btn-secondary {
-            background: var(--accent-color);
-        }
-
-        .btn-secondary:hover {
-            background: #e0a030;
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
+        /* Section générique */
+        section {
+            padding: 4rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        section h2 {
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section h3 {
+            font-size: 1.8rem;
+            color: #e3004f;
+            margin: 2rem 0 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* Section ASEI */
+        .asei-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 4rem 3rem;
+            margin: 3rem 0;
+        }
+
+        .asei-header {
+            display: flex;
             align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
-        .about h2 {
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
+        .asei-logo {
+            height: 80px;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .about p {
+        .asei-intro {
+            flex: 1;
+        }
+
+        .asei-intro h2 {
+            text-align: left;
+            margin-bottom: 0.5rem;
+            color: #e3004f;
+        }
+
+        .asei-intro p {
             font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            font-style: italic;
+            color: #555;
         }
 
-        .about-image {
+        .asei-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e3004f;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .asei-values {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .value-icon {
+            font-size: 1.5rem;
+            color: #2c5f2d;
+            flex-shrink: 0;
+        }
+
+        .value-text strong {
+            color: #2c5f2d;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .pdf-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #e3004f;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .pdf-download:hover {
+            background: #c30045;
+            transform: translateX(5px);
+        }
+
+        .pdf-download::before {
+            content: "📄";
+            font-size: 1.5rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            height: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        .about-image img {
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
             width: 100%;
-            height: 100%;
+            height: 250px;
             object-fit: cover;
         }
 
-        /* Jardin Mellifère Section */
-        .mellifere {
-            background: linear-gradient(135deg, #f9b233 0%, #ffcd5c 100%);
-            padding: 5rem 2rem;
-            color: var(--text-dark);
+        .service-content {
+            padding: 1.5rem;
         }
 
-        .mellifere-content {
-            max-width: 1400px;
-            margin: 0 auto;
+        .service-content h3 {
+            color: #2c5f2d;
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Jardin Mellifère */
+        .mellifere-section {
+            background: linear-gradient(135deg, #fff8dc 0%, #f0e68c 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 2rem;
             align-items: center;
         }
 
-        .mellifere h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .mellifere p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .honey-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
         .mellifere-image {
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            height: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .mellifere-image img {
@@ -242,265 +341,116 @@
             object-fit: cover;
         }
 
-        /* Services Section */
-        .services {
-            background: var(--bg-light);
-            padding: 6rem 2rem;
-        }
-
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .services-intro {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-top: 1rem;
-            text-align: left;
-        }
-
-        .service-card ul li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-        }
-
-        .service-card ul li:before {
-            content: "✓ ";
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Gallery Section */
+        /* Galerie */
         .gallery {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-        }
-
-        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
+            margin-top: 3rem;
         }
 
-        .gallery-item {
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             cursor: pointer;
-            height: 300px;
         }
 
-        .gallery-item:hover {
+        .gallery img:hover {
             transform: scale(1.05);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        /* Formulaire de contact */
+        .contact-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 3rem;
         }
 
-        /* Values Section */
-        .values {
-            background: var(--white);
-            padding: 6rem 2rem;
-        }
-
-        .values-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .values h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .values-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 4rem;
-        }
-
-        .values-grid {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
         }
 
-        .value-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-light);
-            border-radius: 15px;
-            transition: transform 0.3s;
-        }
-
-        .value-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .value-item .icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .value-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .value-item p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #b8003d 100%);
-            color: var(--white);
-            padding: 6rem 2rem;
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact h2 {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-        }
-
         .contact-info {
-            line-height: 2.2;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .contact-info p {
-            margin-bottom: 1.5rem;
-            font-size: 1.15rem;
+        .contact-item {
             display: flex;
-            align-items: center;
+            align-items: start;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #e3004f;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
             gap: 1rem;
         }
 
-        .contact-info .icon {
-            font-size: 1.5rem;
-            color: var(--accent-color);
+        .form-group {
+            display: flex;
+            flex-direction: column;
         }
 
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: none;
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2c5f2d;
+        }
+
+        input, select, textarea {
+            padding: 0.8rem;
+            border: 2px solid #ddd;
             border-radius: 8px;
             font-family: inherit;
-            font-size: 1rem;
+            transition: border-color 0.3s;
         }
 
-        .contact-form textarea {
-            resize: vertical;
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #e3004f;
+        }
+
+        textarea {
             min-height: 150px;
+            resize: vertical;
         }
 
-        .contact-form button {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--accent-color);
-            color: var(--text-dark);
+        button[type="submit"] {
+            background: #e3004f;
+            color: white;
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background 0.3s;
         }
 
-        .contact-form button:hover {
-            background: #e0a030;
-            transform: translateY(-2px);
+        button[type="submit"]:hover {
+            background: #c30045;
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: var(--white);
+            background: #2c5f2d;
+            color: white;
             padding: 3rem 2rem 1rem;
         }
 
@@ -509,99 +459,67 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
+            gap: 2rem;
         }
 
         .footer-section h3 {
-            color: var(--primary-color);
+            color: #97c05c;
             margin-bottom: 1rem;
         }
 
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
             margin-bottom: 0.5rem;
         }
 
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
         .footer-section a:hover {
-            color: var(--accent-color);
+            color: #97c05c;
         }
 
         .footer-bottom {
             text-align: center;
+            margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid #333;
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Responsive */
-        @media (max-width: 968px) {
-            .menu-toggle {
-                display: block;
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
             }
 
             nav ul {
-                display: none;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .contact-grid,
+            .mellifere-section {
+                grid-template-columns: 1fr;
+            }
+
+            .asei-header {
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                text-align: center;
             }
 
-            nav ul.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content,
-            .mellifere-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .logo-container img {
-                height: 50px;
-            }
-
-            .hero {
-                padding: 140px 1rem 80px;
+            .asei-intro h2 {
+                text-align: center;
             }
         }
     </style>
@@ -609,326 +527,312 @@
 <body>
     <!-- Header -->
     <header>
-        <nav>
+        <div class="header-content">
             <div class="logo-container">
-                <img src="logo_asei.jpg" alt="ASEI Logo">
-                <div class="site-title">ESAT <span>Le Garric</span></div>
+                <img src="logo_asei.jpg" alt="Logo ASEI">
+                <div class="logo-text">
+                    <h1>ESAT Le Garric</h1>
+                    <p>Agissons pour l'inclusion</p>
+                </div>
             </div>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <ul id="menu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#services">Nos Services</a></li>
-                <li><a href="#galerie">Nos Réalisations</a></li>
-                <li><a href="#valeurs">Nos Valeurs</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#asei">L'ASEI</a></li>
+                    <li><a href="#services">Nos Services</a></li>
+                    <li><a href="#mellifere">Jardin Mellifère</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="accueil">
-        <div class="subtitle">ASEI - Agissons pour l'inclusion</div>
-        <h1>ESAT Le Garric</h1>
-        <p>Des prestations professionnelles de qualité</p>
-        <p>La Salvetat-sur-Agout, Hérault</p>
-        <div>
-            <a href="#contact" class="btn">Demander un devis</a>
-            <a href="#services" class="btn btn-secondary">Découvrir nos services</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-content">
+    <section id="accueil" class="hero">
+        <div class="hero-content">
             <div>
                 <h2>Bienvenue à l'ESAT Le Garric</h2>
-                <p>
-                    Situé à <strong>La Salvetat-sur-Agout dans l'Hérault</strong>, au cœur d'un territoire 
-                    naturel préservé, l'ESAT Le Garric est un Établissement et Service d'Aide par le Travail 
-                    géré par l'<strong>ASEI (Association pour la Solidarité, l'Éducation et l'Insertion)</strong>.
-                </p>
-                <p>
-                    Nous accompagnons des travailleurs en situation de handicap dans leur parcours professionnel 
-                    tout en proposant des services de haute qualité aux entreprises, collectivités et particuliers.
-                </p>
-                <p>
-                    Notre établissement s'inscrit dans une démarche de développement durable et de respect de 
-                    l'environnement, comme en témoigne notre engagement pour la protection de la biodiversité.
-                </p>
-            </div>
-            <div class="about-image">
-                <img src="batiment_esat.jpg" alt="ESAT Le Garric">
+                <p>Insertion professionnelle et accompagnement personnalisé</p>
+                <a href="#contact" class="cta-button">Contactez-nous</a>
             </div>
         </div>
     </section>
 
-    <!-- Jardin Mellifère Section -->
-    <section class="mellifere">
-        <div class="mellifere-content">
-            <div class="mellifere-image">
-                <img src="jardin_mellifere.jpg" alt="Jardin Mellifère">
-            </div>
-            <div>
-                <div class="honey-icon">🐝</div>
-                <h2>Notre Jardin Mellifère</h2>
-                <p>
-                    À l'entrée de notre établissement, nous avons créé un <strong>jardin mellifère</strong> 
-                    dédié à la protection des abeilles et des insectes pollinisateurs.
-                </p>
-                <p>
-                    Ce jardin, composé de plantes à fleurs riches en nectar et en pollen, contribue à la 
-                    préservation de la biodiversité locale et offre un refuge essentiel pour les pollinisateurs.
-                </p>
-                <p>
-                    Nous produisons également notre propre <strong>miel artisanal</strong>, récolté avec soin 
-                    et disponible à la vente. Un produit 100% naturel, issu de notre engagement pour 
-                    l'environnement !
-                </p>
-                <p>
-                    <strong>🍯 Découvrez aussi nos produits artisanaux : stylos en bois tournés et pain frais quotidien</strong>
-                </p>
+    <!-- Section ASEI -->
+    <section id="asei" class="asei-section">
+        <div class="asei-header">
+            <img src="logo_asei.jpg" alt="Logo ASEI" class="asei-logo">
+            <div class="asei-intro">
+                <h2>Notre association : L'ASEI</h2>
+                <p>"Agissons ensemble pour l'inclusion"</p>
             </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="services-container">
-            <h2>Nos Services Professionnels</h2>
-            <p class="services-intro">
-                Une gamme complète de prestations adaptées aux besoins des professionnels et des particuliers
+        <div class="asei-content">
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                Depuis <strong>1950</strong>, l'ASEI accompagne les personnes en situation de handicap avec une mission claire : 
+                proposer des <strong>solutions adaptées</strong> pour des parcours <strong>sur mesure</strong>. 
+                L'ESAT Le Garric s'inscrit dans cette dynamique en offrant un accompagnement professionnel 
+                personnalisé favorisant l'insertion et l'épanouissement de chacun.
             </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌳</div>
+
+            <div class="asei-stats">
+                <div class="stat-card">
+                    <div class="stat-number">106</div>
+                    <div class="stat-label">Établissements et services</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+10 000</div>
+                    <div class="stat-label">Personnes accueillies par an</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2897</div>
+                    <div class="stat-label">Professionnels engagés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Départements d'intervention</div>
+                </div>
+            </div>
+
+            <div class="asei-values">
+                <h3 style="text-align: center; color: #2c5f2d; margin-bottom: 1.5rem;">Nos valeurs fondamentales</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">🤝</div>
+                        <div class="value-text">
+                            <strong>Respect & Bientraitance</strong>
+                            <p>Respect absolu des règles et principes de bientraitance</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">💪</div>
+                        <div class="value-text">
+                            <strong>Autodétermination</strong>
+                            <p>Soutien du pouvoir d'agir et des choix de chacun</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">⚖️</div>
+                        <div class="value-text">
+                            <strong>Égalité</strong>
+                            <p>Lutte contre les discriminations et les inégalités</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🌱</div>
+                        <div class="value-text">
+                            <strong>Innovation</strong>
+                            <p>Agir de manière durable et responsable</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🎯</div>
+                        <div class="value-text">
+                            <strong>Inclusion</strong>
+                            <p>Militer pour une société plus ouverte et solidaire</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🤗</div>
+                        <div class="value-text">
+                            <strong>Accompagnement</strong>
+                            <p>Ne pas faire POUR mais AVEC les personnes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="Plaquette_ASEI_Institutionnelle.pdf" class="pdf-download" target="_blank">
+                    Télécharger la plaquette ASEI complète
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Services -->
+    <section id="services">
+        <h2>Nos Services</h2>
+        <p class="section-subtitle">Des prestations de qualité au service de votre territoire</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="elagage_nacelle.jpg" alt="Espaces Verts">
+                <div class="service-content">
+                    <div class="service-icon">🌿</div>
                     <h3>Espaces Verts</h3>
-                    <p>Entretien et aménagement de vos espaces extérieurs par des équipes qualifiées.</p>
-                    <ul>
-                        <li>Tonte et débroussaillage</li>
-                        <li>Taille d'arbres et haies</li>
-                        <li>Élagage avec nacelle</li>
-                        <li>Aménagements paysagers</li>
-                        <li>Entretien de jardins</li>
-                    </ul>
+                    <p>Entretien professionnel de vos jardins, parcs et espaces publics. Taille, élagage, débroussaillage et aménagement paysager.</p>
                 </div>
+            </div>
 
-                <div class="service-card">
-                    <div class="service-icon">👔</div>
-                    <h3>Blanchisserie</h3>
-                    <p>Service de blanchisserie professionnelle avec un soin particulier apporté au linge.</p>
-                    <ul>
-                        <li>Lavage professionnel</li>
-                        <li>Repassage soigné</li>
-                        <li>Pliage et conditionnement</li>
-                        <li>Pour professionnels et particuliers</li>
-                    </ul>
+            <div class="service-card">
+                <img src="stylos_bois.jpg" alt="Menuiserie">
+                <div class="service-content">
+                    <div class="service-icon">🪵</div>
+                    <h3>Menuiserie & Objets en Bois</h3>
+                    <p>Fabrication artisanale de stylos, présentoirs et objets personnalisés en bois. Qualité et savoir-faire local.</p>
                 </div>
+            </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🔨</div>
-                    <h3>Menuiserie</h3>
-                    <p>Fabrication artisanale de pièces en bois de qualité.</p>
-                    <ul>
-                        <li>Stylos en bois tournés personnalisés</li>
-                        <li>Mobilier sur mesure</li>
-                        <li>Présentoirs et coffrets</li>
-                        <li>Petits travaux de menuiserie</li>
-                        <li>Réparations diverses</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Nettoyage Professionnel</h3>
-                    <p>Entretien de locaux avec des produits respectueux de l'environnement.</p>
-                    <ul>
-                        <li>Nettoyage de bureaux</li>
-                        <li>Entretien de commerces</li>
-                        <li>Nettoyage industriel</li>
-                        <li>Prestations régulières ou ponctuelles</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
+            <div class="service-card">
+                <img src="atelier_mecanique.jpg" alt="Mécanique Auto">
+                <div class="service-content">
                     <div class="service-icon">🔧</div>
-                    <h3>Mécanique Auto</h3>
-                    <p>Atelier mécanique automobile pour l'entretien de vos véhicules.</p>
-                    <ul>
-                        <li>Entretien courant</li>
-                        <li>Réparations mécaniques</li>
-                        <li>Changement de pneus</li>
-                        <li>Diagnostic automobile</li>
-                    </ul>
+                    <h3>Mécanique Automobile</h3>
+                    <p>Entretien et réparation de véhicules. Révisions, vidanges et diagnostics réalisés par nos équipes qualifiées.</p>
                 </div>
+            </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Multi-Services</h3>
-                    <p>Solutions flexibles pour vos besoins spécifiques.</p>
-                    <ul>
-                        <li>Manutention</li>
-                        <li>Conditionnement</li>
-                        <li>Mise sous pli</li>
-                        <li>Petits travaux divers</li>
-                    </ul>
+            <div class="service-card">
+                <img src="miel.jpg" alt="Production de Miel">
+                <div class="service-content">
+                    <div class="service-icon">🍯</div>
+                    <h3>Miel Local</h3>
+                    <p>Production de miel 100% local issu de notre jardin mellifère. Un engagement pour la biodiversité et la qualité.</p>
                 </div>
+            </div>
 
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3>Équipe Autonome</h3>
-                    <p>Mise à disposition d'équipes formées et encadrées pour vos projets.</p>
-                    <ul>
-                        <li>Équipes opérationnelles</li>
-                        <li>Encadrement professionnel</li>
-                        <li>Intervention sur site</li>
-                        <li>Flexibilité et réactivité</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
+            <div class="service-card">
+                <img src="pain.jpg" alt="Boulangerie">
+                <div class="service-content">
                     <div class="service-icon">🥖</div>
-                    <h3>Dépôt de Pain</h3>
-                    <p>Point de vente de produits de boulangerie frais quotidiens.</p>
-                    <ul>
-                        <li>Pain frais chaque jour</li>
-                        <li>Viennoiseries</li>
-                        <li>Service de proximité</li>
-                        <li>Miel artisanal maison</li>
-                    </ul>
+                    <h3>Boulangerie</h3>
+                    <p>Pains et pâtisseries faits maison. Un savoir-faire artisanal pour des produits de qualité.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="coffret_stylos.jpg" alt="Prestations diverses">
+                <div class="service-content">
+                    <div class="service-icon">✨</div>
+                    <h3>Prestations Diverses</h3>
+                    <p>Conditionnement, mise sous pli, et autres prestations adaptées aux besoins des entreprises et collectivités.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="galerie">
-        <h2>Nos Réalisations</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="elagage_nacelle_2.jpg" alt="Élagage avec nacelle">
-            </div>
-            <div class="gallery-item">
-                <img src="elagage_nacelle.jpg" alt="Élagage professionnel">
-            </div>
-            <div class="gallery-item">
-                <img src="atelier_mecanique.jpg" alt="Atelier mécanique">
-            </div>
-            <div class="gallery-item">
-                <img src="coffret_stylos.jpg" alt="Stylos en bois artisanaux">
-            </div>
-            <div class="gallery-item">
-                <img src="stylos_bois.jpg" alt="Stylos bois tournés">
-            </div>
-            <div class="gallery-item">
-                <img src="miel.jpg" alt="Miel artisanal">
-            </div>
-            <div class="gallery-item">
-                <img src="pain.jpg" alt="Pain frais">
-            </div>
-            <div class="gallery-item">
-                <img src="jardin_mellifere.jpg" alt="Jardin mellifère">
-            </div>
-            <div class="gallery-item">
-                <img src="paysage_lac.jpg" alt="Paysage La Salvetat">
-            </div>
-            <div class="gallery-item">
-                <img src="village_salvetat.jpg" alt="Village La Salvetat">
-            </div>
-            <div class="gallery-item">
-                <img src="batiment_esat.jpg" alt="ESAT Le Garric">
-            </div>
+    <!-- Section Jardin Mellifère -->
+    <section id="mellifere" class="mellifere-section">
+        <div class="mellifere-image">
+            <img src="jardin_mellifere.jpg" alt="Jardin Mellifère">
+        </div>
+        <div>
+            <h2 style="text-align: left; color: #2c5f2d;">🐝 Notre Jardin Mellifère</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                À l'entrée de l'ESAT Le Garric, nous avons créé un <strong>jardin mellifère</strong> dédié à la 
+                protection des espaces favorables aux abeilles et pollinisateurs.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                Ce projet écologique nous permet de <strong>produire notre propre miel</strong>, tout en participant 
+                activement à la préservation de la biodiversité locale. Un engagement concret pour l'environnement 
+                et le développement durable.
+            </p>
+            <ul style="margin-top: 1.5rem; font-size: 1.05rem; line-height: 2;">
+                <li>✓ Protection des espaces mellifères</li>
+                <li>✓ Production de miel 100% local</li>
+                <li>✓ Sensibilisation à la biodiversité</li>
+                <li>✓ Activité pédagogique pour nos travailleurs</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="values" id="valeurs">
-        <div class="values-container">
-            <h2>Les Valeurs de l'ASEI</h2>
-            <p class="values-subtitle">Agissons ensemble pour l'inclusion</p>
-            <div class="values-grid">
-                <div class="value-item">
-                    <div class="icon">🤝</div>
-                    <h3>Solidarité</h3>
-                    <p>Nous favorisons l'entraide et la cohésion sociale pour une société plus inclusive où chacun trouve sa place.</p>
-                </div>
-                <div class="value-item">
-                    <div class="icon">👥</div>
-                    <h3>Respect de la personne</h3>
-                    <p>Chaque individu est unique. Nous valorisons les différences et accompagnons chacun dans son projet de vie.</p>
-                </div>
-                <div class="value-item">
-                    <div class="icon">⭐</div>
-                    <h3>Qualité</h3>
-                    <p>L'exigence professionnelle guide nos actions pour offrir des prestations de service irréprochables.</p>
-                </div>
-                <div class="value-item">
-                    <div class="icon">🎯</div>
-                    <h3>Innovation</h3>
-                    <p>Nous développons des solutions nouvelles et adaptées aux besoins de chacun et de notre territoire.</p>
-                </div>
-                <div class="value-item">
-                    <div class="icon">💚</div>
-                    <h3>Engagement</h3>
-                    <p>Notre responsabilité sociale et environnementale est au cœur de nos pratiques quotidiennes.</p>
-                </div>
-                <div class="value-item">
-                    <div class="icon">🌱</div>
-                    <h3>Développement durable</h3>
-                    <p>Protection de l'environnement, jardin mellifère, production de miel : nous agissons pour l'avenir.</p>
-                </div>
-            </div>
+    <!-- Galerie Photos -->
+    <section id="galerie">
+        <h2>Notre Cadre de Vie</h2>
+        <p class="section-subtitle">Découvrez notre environnement à La Salvetat-sur-Agout</p>
+        
+        <div class="gallery">
+            <img src="batiment_esat.jpg" alt="Bâtiment ESAT">
+            <img src="village_salvetat.jpg" alt="Village La Salvetat">
+            <img src="paysage_lac.jpg" alt="Paysage lac">
+            <img src="elagage_nacelle_2.jpg" alt="Élagage en action">
+            <img src="jardin_mellifere.jpg" alt="Jardin mellifère">
+            <img src="atelier_mecanique.jpg" alt="Atelier mécanique">
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <h2>Contactez-nous</h2>
+        <p class="section-subtitle">Une question ? Un projet ? N'hésitez pas à nous contacter</p>
+
+        <div class="contact-grid">
             <div class="contact-info">
-                <h2>Contactez-nous</h2>
-                <p>
-                    <span class="icon">📍</span>
-                    <span>ESAT Le Garric<br>La Salvetat-sur-Agout<br>Hérault (34)</span>
-                </p>
-                <p>
-                    <span class="icon">📞</span>
-                    <span><a href="tel:0467976124" style="color: white; text-decoration: none;">04 67 97 61 24</a></span>
-                </p>
-                <p>
-                    <span class="icon">📧</span>
-                    <span><a href="mailto:centre.garric@asei.asso.fr" style="color: white; text-decoration: none;">centre.garric@asei.asso.fr</a></span>
-                </p>
-                <p>
-                    <span class="icon">🕒</span>
-                    <span>Lundi au Vendredi<br>8h00 - 17h00</span>
-                </p>
-                <br>
-                <p style="font-size: 1.1rem; margin-top: 2rem;">
-                    <strong>Vous avez un projet ?</strong><br>
-                    N'hésitez pas à nous contacter pour un devis gratuit et personnalisé.
-                </p>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Adresse</strong><br>
+                        ESAT Le Garric<br>
+                        La Salvetat-sur-Agout, Hérault
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Téléphone</strong><br>
+                        <a href="tel:0467976124" style="color: #e3004f; text-decoration: none;">04 67 97 61 24</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:centre.garric@asei.asso.fr" style="color: #e3004f; text-decoration: none;">
+                            centre.garric@asei.asso.fr
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <strong>Horaires</strong><br>
+                        Lundi - Vendredi : 8h00 - 17h00
+                    </div>
+                </div>
             </div>
-            <div class="contact-form">
-                <h2>Demande de devis</h2>
-                <form onsubmit="handleSubmit(event)">
-                    <input type="text" name="nom" placeholder="Votre nom *" required>
-                    <input type="email" name="email" placeholder="Votre email *" required>
-                    <input type="tel" name="telephone" placeholder="Votre téléphone *" required>
-                    <select name="service" required>
-                        <option value="">Sélectionnez un service *</option>
+
+            <form>
+                <div class="form-group">
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service concerné</label>
+                    <select id="service" name="service">
+                        <option value="">Sélectionnez un service</option>
                         <option value="espaces-verts">Espaces Verts</option>
-                        <option value="blanchisserie">Blanchisserie</option>
                         <option value="menuiserie">Menuiserie</option>
-                        <option value="nettoyage">Nettoyage Professionnel</option>
                         <option value="mecanique">Mécanique Auto</option>
-                        <option value="multi-services">Multi-Services</option>
-                        <option value="equipe-autonome">Équipe Autonome</option>
-                        <option value="depot-pain">Dépôt de Pain</option>
+                        <option value="miel">Miel</option>
+                        <option value="boulangerie">Boulangerie</option>
                         <option value="autre">Autre</option>
                     </select>
-                    <textarea name="message" placeholder="Décrivez votre projet ou besoin... *" required></textarea>
-                    <button type="submit">Envoyer ma demande</button>
-                </form>
-            </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit">Envoyer le message</button>
+            </form>
         </div>
     </section>
 
@@ -938,103 +842,46 @@
             <div class="footer-section">
                 <h3>ESAT Le Garric</h3>
                 <p>Établissement et Service d'Aide par le Travail</p>
-                <p>Géré par l'ASEI</p>
-                <p>Association pour la Solidarité, l'Éducation et l'Insertion</p>
-                <p>La Salvetat-sur-Agout, Hérault</p>
+                <p style="margin-top: 1rem;">
+                    La Salvetat-sur-Agout<br>
+                    Hérault (34)
+                </p>
             </div>
+
             <div class="footer-section">
                 <h3>Nos Services</h3>
-                <a href="#services">Espaces Verts</a>
-                <a href="#services">Blanchisserie</a>
-                <a href="#services">Menuiserie</a>
-                <a href="#services">Nettoyage</a>
-                <a href="#services">Mécanique Auto</a>
-                <a href="#services">Dépôt de Pain</a>
+                <ul>
+                    <li><a href="#services">Espaces Verts</a></li>
+                    <li><a href="#services">Menuiserie</a></li>
+                    <li><a href="#services">Mécanique Auto</a></li>
+                    <li><a href="#services">Production de Miel</a></li>
+                    <li><a href="#services">Boulangerie</a></li>
+                </ul>
             </div>
+
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>📞 04 67 97 61 24</p>
-                <p>📧 centre.garric@asei.asso.fr</p>
-                <p>🕒 Lun-Ven: 8h-17h</p>
+                <ul>
+                    <li>📞 04 67 97 61 24</li>
+                    <li>✉️ centre.garric@asei.asso.fr</li>
+                    <li><a href="https://www.asei.asso.fr" target="_blank">www.asei.asso.fr</a></li>
+                </ul>
             </div>
+
             <div class="footer-section">
-                <h3>Nos Engagements</h3>
-                <p>🌱 Jardin Mellifère</p>
-                <p>🍯 Production de miel</p>
-                <p>♻️ Développement durable</p>
-                <p>🤝 Inclusion sociale</p>
+                <h3>L'ASEI</h3>
+                <p>Association au service de l'inclusion depuis 1950</p>
+                <p style="margin-top: 1rem;">
+                    <a href="Plaquette_ASEI_Institutionnelle.pdf" target="_blank" style="color: #97c05c;">
+                        📄 Télécharger la plaquette
+                    </a>
+                </p>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2024 ESAT Le Garric - ASEI - Tous droits réservés</p>
-            <p>Agissons pour l'inclusion</p>
+            <p>&copy; 2024 ESAT Le Garric - ASEI | Tous droits réservés</p>
         </div>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            const subject = `Demande de devis - ${data.service}`;
-            const body = `
-Nom: ${data.nom}
-Email: ${data.email}
-Téléphone: ${data.telephone}
-Service demandé: ${data.service}
-
-Message:
-${data.message}
-            `;
-            
-            window.location.href = `mailto:centre.garric@asei.asso.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            alert('Merci pour votre demande ! Votre client mail va s\'ouvrir pour envoyer le message.');
-            event.target.reset();
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    document.getElementById('menu').classList.remove('active');
-                }
-            });
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .value-item, .gallery-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s, transform 0.6s';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
